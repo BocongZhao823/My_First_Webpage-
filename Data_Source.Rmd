@@ -61,8 +61,8 @@ rainfall_tidy <- rainfall %>%
 rainfall_tidy$date <- as.Date(with(rainfall_tidy, paste(year, month, day,sep="-")), "%Y-%m-%d") 
 
 rainfall_tidy <- rainfall_tidy %>% 
-  select(-year, -month, -day) #%>% 
-  #rename( c("millimeters"="rainfall","yes_no"="quality"))
+  select(-year, -month, -day) %>% 
+  rename( c("longitude"="long","latitude"="lat"))
   
 rainfall_tidy <-rainfall_tidy [,c("date", "city_name","rainfall","quality", "lat", "long")]
 
