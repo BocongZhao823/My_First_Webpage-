@@ -1,0 +1,92 @@
+---
+title: "Data_Source"
+author: "Bocong Zhao"
+date: "14/10/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Data_Source
+
+**The data comes from Tidytuesday:**
+**https://github.com/rfordatascience/tidytuesday/tree/master/data/2020/2020-01-07**
+
+```{r}
+# Get the Data
+
+# rainfall <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-01-07/rainfall.csv')
+
+# temperature <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-01-07/temperature.csv')
+
+# IF YOU USE THIS DATA PLEASE BE CAUTIOUS WITH INTERPRETATION
+# nasa_fire <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-01-07/MODIS_C6_Australia_and_New_Zealand_7d.csv')
+
+# For JSON File of fires
+# url <- "http://www.rfs.nsw.gov.au/feeds/majorIncidents.json"
+
+# aus_fires <- sf::st_read(url)
+
+# Or read in with tidytuesdayR package (https://github.com/thebioengineer/tidytuesdayR)
+
+# Either ISO-8601 date or year/week works!
+
+# Install via devtools::install_github("thebioengineer/tidytuesdayR")
+
+# tuesdata <- tidytuesdayR::tt_load('2020-01-07') 
+tuesdata <- tidytuesdayR::tt_load(2020, week = 2)
+
+rainfall <- tuesdata$rainfall
+temperature <- tuesdata$temperature
+AusNew <- tuesdata$MODIS_C6_Australia_and_New_Zealand_7d
+```
+
+## Briefly view the data
+
+**Reduce the size of data, (i.e. reduce unnecessary variables & filter years)**
+
+### (1) Rainfall 
+```{r}
+library(visdat)
+library(dplyr)
+
+# Rainfall data in year 2019
+rainfall_tidy <- rainfall %>% 
+  select(-station_code, -period, -station_name)%>%
+  filter(year >= 2019 & year < 2020) %>% 
+  na.omit()
+
+rainfall_tidy$date <- as.Date(with(rainfall_tidy, paste(year, month, day,sep="-")), "%Y-%m-%d") 
+
+rainfall_tidy <- rainfall_tidy %>% 
+  select(-year, -month, -day) #%>% 
+  #rename( c("millimeters"="rainfall","yes_no"="quality"))
+  
+rainfall_tidy <-rainfall_tidy [,c("date", "city_name","rainfall","quality", "lat", "long")]
+
+#rainfall_tidy %>% 
+#  group_by(station_name) %>% 
+#  count()
+
+rainfall_tidy %>% 
+  group_by(city_name) %>% 
+  count()
+
+# write.csv(rainfall_tidy,"rainfall_tidy.csv")
+```
+
+### temperature
+```{r}
+temp_tidy<-temperature %>% 
+  filter(date >= as.Date("2019-01-01") & date <= as.Date("2019-12-31")) %>% 
+  select(-site_name)
+
+#temp_tidy<- setNames(temp_tidy, replace(names(temp_tidy), names(temp_tidy) == 'Brisbane', 'BRISBANE'))
+
+temp_tidy %>% 
+  group_by(city_name) %>% 
+  count()
+```
+
