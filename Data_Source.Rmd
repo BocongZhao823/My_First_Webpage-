@@ -64,7 +64,7 @@ rainfall_tidy <- rainfall_tidy %>%
   select(-year, -month, -day) %>% 
   rename( c("longitude"="long","latitude"="lat"))
   
-rainfall_tidy <-rainfall_tidy [,c("date", "city_name","rainfall","quality", "lat", "long")]
+rainfall_tidy <-rainfall_tidy [,c("date", "city_name","rainfall","quality", "latitude", "longitude")]
 
 #rainfall_tidy %>% 
 #  group_by(station_name) %>% 
@@ -74,7 +74,7 @@ rainfall_tidy %>%
   group_by(city_name) %>% 
   count()
 
-# write.csv(rainfall_tidy,"rainfall_tidy.csv")
+write.csv(rainfall_tidy,"rainfall_tidy.csv")
 ```
 
 ### temperature
