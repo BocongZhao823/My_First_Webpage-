@@ -1,0 +1,75 @@
+This XML file does not appear to have any style information associated with it. The document tree is shown below.
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+<channel>
+<title>Mitchell O'Hara-Wild</title>
+<link>/</link>
+<description>Recent content on Mitchell O'Hara-Wild</description>
+<generator>Hugo -- gohugo.io</generator>
+<language>en-uk</language>
+<lastBuildDate>Mon, 30 Sep 2019 00:00:00 +0000</lastBuildDate>
+<atom:link href="/index.xml" rel="self" type="application/rss+xml"/>
+<item>
+<title>Introducing fable</title>
+<link>/blog/fable/</link>
+<pubDate>Mon, 30 Sep 2019 00:00:00 +0000</pubDate>
+<guid>/blog/fable/</guid>
+<description>The fable package bridges the gap between popular tidy data analysis workflows and time series forecasting. Using tidy temporal data from Earo Wang’s tsibble package, fable allows complex forecasting tasks to be performed with ease.</description>
+</item>
+<item>
+<title>Introducing feasts</title>
+<link>/blog/feasts/</link>
+<pubDate>Fri, 30 Aug 2019 00:00:00 +0000</pubDate>
+<guid>/blog/feasts/</guid>
+<description>Feast your eyes on the latest CRAN release to the collection of tidy time series R packages. The feasts package is feature-packed with functions for understanding the behaviour of time series through visualisation, decomposition and feature extraction.</description>
+</item>
+<item>
+<title>vitae 0.2.0</title>
+<link>/blog/vitae-0-2-0/</link>
+<pubDate>Fri, 12 Jul 2019 00:00:00 +0000</pubDate>
+<guid>/blog/vitae-0-2-0/</guid>
+<description>The v0.2.0 update to the vitae package is now available on CRAN, and along with it comes with new templates and more features. Read on to learn more, or refer to the changelog for a brief summary.</description>
+</item>
+<item>
+<title>Introducing tsibbledata</title>
+<link>/blog/tsibbledata/</link>
+<pubDate>Sat, 15 Jun 2019 00:00:00 +0000</pubDate>
+<guid>/blog/tsibbledata/</guid>
+<description>The tsibbledata package provides a diverse collection of datasets for learning how to work with tidy time series data. There are 12 time series datasets included in the package, each of which featuring a unique time series characteristics or structures.</description>
+</item>
+<item>
+<title>Introducing vitae</title>
+<link>/blog/vitae/</link>
+<pubDate>Wed, 09 Jan 2019 00:00:00 +0000</pubDate>
+<guid>/blog/vitae/</guid>
+<description>For those looking to refresh their CV this year, the vitae package may offer a convenient and maintainable solution. The package leverages the power of R Markdown’s dynamic documents to help you create, maintain, and even automate your Résumé or CV.</description>
+</item>
+<item>
+<title>Introducing taipan</title>
+<link>/blog/taipan/</link>
+<pubDate>Thu, 27 Sep 2018 00:00:00 +0000</pubDate>
+<guid>/blog/taipan/</guid>
+<description>Annotating images is tiresome work, and existing tools do not make this much easier. Identifying features within images is a common task for training and evaluating machine learning models, and taipan aims to simplify this very manual process.</description>
+</item>
+<item>
+<title>useR! 2018 feature wall</title>
+<link>/blog/user-2018-feature-wall/</link>
+<pubDate>Wed, 11 Jul 2018 00:00:00 +0000</pubDate>
+<guid>/blog/user-2018-feature-wall/</guid>
+<description>The hexwall at useR! 2018 features roughly 200 contributed R package hexagon stickers. If you’ve ever had difficulty aligning hexagon stickers in your slides or even on your laptop, you may appreciate the challenge of arranging hundreds of hexagons.</description>
+</item>
+<item>
+<title>Arranging hex stickers in R</title>
+<link>/blog/hexwall/</link>
+<pubDate>Tue, 10 Jul 2018 00:00:00 +0000</pubDate>
+<guid>/blog/hexwall/</guid>
+<description>Neatly aligning hex stickers for presentations or reports is a tedious process. It is repetitive, and very easy to get wrong. Despite the physical hexagons having a standardised shape and size, digital hexagons appear in many forms.</description>
+</item>
+<item>
+<title>Loading R packages in a loop</title>
+<link>/blog/loading-r-packages-in-a-loop/</link>
+<pubDate>Wed, 04 Jul 2018 00:00:00 +0000</pubDate>
+<guid>/blog/loading-r-packages-in-a-loop/</guid>
+<description>In Nick Tierney (@nj_tierney) and Saskia Freytag’s (@trashystats) second Credibly Curious podcast, they briefly delve into the confusing world of non-standard evaluation (NSE). As part of this discussion, podcast guest Roger Peng (@rdpeng) noted that:</description>
+</item>
+</channel>
+</rss>
