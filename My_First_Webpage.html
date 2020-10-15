@@ -72,18 +72,48 @@
     <script>
       // Assign the specification to a local variable vlSpec.
       var vlSpec = {
-        "$schema": "https://raw.githubusercontent.com/BocongZhao823/My_First_Webpage-/main/Ausmap.geo.json",
+        "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
         "width": 500,
         "height": 300,
-        "data": {"url": "https://raw.githubusercontent.com/BocongZhao823/My_First_Webpage-/main/rainfall_tidy.csv"},
-        "projection": {"type": "albersUsa"},
-        "mark": "point",
-        "encoding": {
-          "longitude": {"field": "longitude", "type": "quantitative"},
-          "latitude": {"field": "latitude", "type": "quantitative"},
-          "size": {"value": 10}
+        "layer": [
+          {
+            "data": {
+              "url": "https://raw.githubusercontent.com/BocongZhao823/My_First_Webpage-/main/Ausmap.geo.json",
+              "format": {
+                "type": "topojson",
+                "feature": "custom"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "lightgray",
+        "stroke": "white"
+      }
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/BocongZhao823/My_First_Webpage-/main/rainfall_tidy.csv"
+      },
+      "mark": "circle",
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
         },
-        "config": {"view": {"stroke": "transparent"}}
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "size": {"value": 10},
+        "color": {"value": "steelblue"}
+      }
+    }
+        ],
+        "config": {"projection": {
+          "type": "orthographic",
+          "rotate":[-140,30,0]
+          }
+        }
       };
 
       // Embed the visualization in the container with id `vis`
