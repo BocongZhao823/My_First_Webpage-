@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en-uk">
+  <head>
+    <meta name="generator" content="Hugo 0.55.6">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="HandheldFriendly" content="TRUE">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,maximum-scale=1">
+    <meta name="author" content="Bocong Zhao">
+    <meta name="description" content>
+    <meta property="og:title" content="Bocong Zhao">
+    <meta property="og:description" content>
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/">
+    <meta property="og:update_time" content="2020-10-14T00:00:00+00:00">
+    <title>
+      Bocong Zhao
+     </title>
+    <link rel="canonical" href="My_First_Webpage.html">
+    <link href="https://raw.githubusercontent.com/BocongZhao823/My_First_Webpage-/main/links/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:300,400,500,600">
+    <link href="https://raw.githubusercontent.com/BocongZhao823/My_First_Webpage-/main/links/font.css">
+    <link href="https://raw.githubusercontent.com/BocongZhao823/My_First_Webpage-/main/links/bootstrap.min.css" rel="stylesheet">
+    <link href="https://raw.githubusercontent.com/BocongZhao823/My_First_Webpage-/main/links/style.min.css" rel="stylesheet">
+    <link href="https://raw.githubusercontent.com/BocongZhao823/My_First_Webpage-/main/links/style.min.css" rel="stylesheet"> 
+    <link href="https://raw.githubusercontent.com/BocongZhao823/My_First_Webpage-/main/links/main.css" rel="stylesheet">
+    <link href="https://raw.githubusercontent.com/BocongZhao823/My_First_Webpage-/main/links/add-on.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.16.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.16.8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.12.2"></script>
+
+    <style type="text/css">
+      @media (min-width: 800px) and (max-width: 850px){
+        .navbar:not(.top-nav-collapse){
+          background: #1c2331!important;
+        }
+      }
+      /* Add space between Vega-Embed links  */
+      .vega-actions a {
+        margin-right: 5px;
+      }
+    </style>
+    <link ref="stylesheet" href="https://raw.githubusercontent.com/BocongZhao823/My_First_Webpage-/main/links/katex.min.css">
+  </head>
+  <body class="bg-light" data-spy="scroll" data-target="#page-scrollspy" data-offset="90">
+    <a name="top"></a>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
+      <div class="container">
+        <a class="navbar-brand" href="My_First_Webpage.html">
+          <strong> Bocong Zhao </strong>
+          </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link waves-effect waves-light" href="#top">
+                "Home"
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link waves-effect waves-light" href="#blog"> Blog </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link waves-effect waves-light" href="#map"> Map </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+  <div id="site-header" class="carousel slide carousel-fade" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#site-header" data-slide-to="0" class="active">
+        ::before
+        ::after
+      </li>
+    </ol>
+  <div class="carousel-inner" role="listbox">
+    <div class="carousel-item active">
+      <di class="view" style="background-image: url('');">
+    <section style="height: 100vh">
+      <h1>Welcome Home</h1>
+    </section>
+    
+    <section style="height: 100vh">
+    <a name="map"></a>
+    <h1>Map</h1>
+    <!-- Container for the visualization -->
+    <div id="vis"></div>
+
+    <script>
+      // Assign the specification to a local variable vlSpec.
+      var vlSpec = {
+        "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+        "width": 500,
+        "height": 300,
+        "layer": [
+          {
+            "data": {
+              "url": "https://raw.githubusercontent.com/BocongZhao823/My_First_Webpage-/main/Ausmap.geo.json",
+              "format": {
+                "type": "topojson",
+                "feature": "custom"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "lightgray",
+        "stroke": "white"
+      }
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/BocongZhao823/My_First_Webpage-/main/AusNew.csv"
+      },
+      "mark": "circle",
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "size": {"value": 10},
+        "color": {"value": "steelblue"}
+      }
+    }
+        ],
+        "config": {"projection": {
+          "type": "orthographic",
+          "rotate":[-140,30,0]
+          }
+        }
+      };
+
+      // Embed the visualization in the container with id `vis`
+      vegaEmbed('#vis', vlSpec);
+    </script>
+    </section>
+<section style="height: 100vh">
+  <a name="blog"></a>
+  <h1> Blog </h1>
+  <p>
+    做出来可以了，要什么自行车啊！！！
+  </p>
+
+  <a href="#top">Back to Top</a>
+</section>
+
+  </body>
+</html>
