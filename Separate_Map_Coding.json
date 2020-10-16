@@ -5,13 +5,13 @@
   "title": "Australia Fire",
   "layer": [
     { "data": {
-      "url": "https://raw.githubusercontent.com/BocongZhao823/My_First_Webpage-/main/Ausmap.geo.json",
+      "url": "https://raw.githubusercontent.com/BocongZhao823/My_First_Webpage-/main/data/Ausmap.geo.json",
       "format": {"type": "topojson", "feature": "custom"}
     },
     "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"}
   },
   {
-  "data": {"url": "https://raw.githubusercontent.com/BocongZhao823/My_First_Webpage-/main/AusNew.csv"},
+  "data": {"url": "https://raw.githubusercontent.com/BocongZhao823/My_First_Webpage-/main/data/AusNew.csv"},
   "encoding": {
     "longitude": {"field": "longitude", "type": "quantitative"},
     "latitude": {"field": "latitude", "type": "quantitative"}
