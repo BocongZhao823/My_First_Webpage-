@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Data Visualization Using Vega-Lite">
+    <meta name="author" content="Bocong Zhao">
+    <meta name="keywords" content="Australia Fires & Historical Rainfall, Temperature">
+    <title> Bocong's Web Design | Welcome </title>
+    <link rel="stylesheet" href="./css/style.css"> 
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.16.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.16.8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.12.2"></script>
+
+    <style media="screen">
+      /* Add space between Vega-Embed links  */
+      .vega-actions a {
+        margin-right: 5px;
+      }
+    </style>
+
+  </head>
+
+  <body>
+   <header>
+     <div class="container">
+       <div id="branding">
+         <h1> <span class="highlight">Bocong</span> Web Design </h1>
+       </div>
+       <nav>
+         <ul>
+         <li class="current"><a href="Webpage_Coding.html">Home</a></li>
+         <li><a href="about.html">About</a></li>
+         <li><a href="services.html">Services</a></li>
+         </ul>
+       </nav>
+     </div>
+   </header>
+
+   <section id="showcase">
+     <div class="container">
+       <h1>Australia Fires & Historical Rainfall, Temperature</h1>
+       <p> Here I need to do some research & put some articles with reference/link</p>
+       </div>>
+   </section>
+
+   <section id="newsletter">
+     <div class="container">
+       <h1> Subscribe To My newsletter</h1>
+       <form>
+         <input type="email" placeholder="Enter Email...">
+         <button type="submit" class="button_1"> Subscribe</button>>
+       </form>>
+     </div>
+   </section>
+
+   <section id="boxes">
+     <div class="container">
+
+     <div class="box">
+       <img src="./img/fires.jpg">
+       <h3>Plot 1: Australia Fire Map</h3>
+       <p> Plot 1 is all about Australia Fire Map</p>
+     </div>
+
+     <div class="box">
+      <img src="./img/rainfall.jpg">
+       <h3>Plot 2: Historical Rainfall</h3>
+       <p> Plot 2 is all about Australia Historical Rainfall</p>
+     </div>
+
+     <div class="box">
+      <img src="./img/temp.jpg">
+      <h3>Plot 3: Historical Temperature</h3>
+      <p> Plot 3 is all about Australia Historical Temperature</p>
+    </div>
+
+     </div>
+   </section> 
+   
+   <div id="vis"></div>
+     <script>
+    // Assign the specification to a local variable vlSpec.
+     var vlSpec = {
+       "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+       "width": 800,
+       "height": 600,
+       "title": "Australia Fire",
+       "layer": [
+         { "data": {
+           "url": "https://raw.githubusercontent.com/BocongZhao823/My_First_Webpage-/main/data/Ausmap.geo.json",
+           "format": {"type": "topojson", "feature": "custom"}
+           },
+         "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"}
+         },
+         {
+           "data": {
+             "url": "https://raw.githubusercontent.com/BocongZhao823/My_First_Webpage-/main/data/AusNew.csv"
+             },
+             "encoding": {
+               "longitude": {"field": "longitude", "type": "quantitative"},
+               "latitude": {"field": "latitude", "type": "quantitative"}
+               },
+               "layer": [
+                 {
+                   "mark": {
+                     "type": "circle",
+                     "tooltip": {"content": "data"}
+                     },
+                     "encoding": {
+                       "size": {"field": "scan",
+                       "type": "quantitative",
+                       "scale": {
+                         "domain": [0, 10]
+                         }},
+                         "color": {"field": "track",
+                         "type": "quantitative",
+                         "scale":{
+                           "scheme":"reds"
+                           }
+                           }
+                           }
+                           }
+                           ]
+                           }
+                           ],
+                           "config": {"projection": {"type": "orthographic", "rotate": [-140, 30, 0]}}
+                           }
+                           // Embed the visualization in the container with id `vis`
+                           vegaEmbed('#vis', vlSpec);
+    </script>
+    </section>
+
+   <footer>
+     <p>Bocong Web Design, Copyright &copy;2020</p>
+   </footer>
+
+  </body>
+</html>  
+
