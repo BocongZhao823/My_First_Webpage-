@@ -45,12 +45,9 @@
    </section>
 
    <section id="newsletter">
+    <a name="top"></a>
      <div class="container">
-       <h1> Subscribe To My newsletter</h1>
-       <form>
-         <input type="email" placeholder="Enter Email...">
-         <button type="submit" class="button_1"> Subscribe</button>>
-       </form>>
+       <h1> See scource code on github</h1>
      </div>
    </section>
 
@@ -58,25 +55,41 @@
      <div class="container">
 
      <div class="box">
+      <a href="#Map">
        <img src="./img/fires.jpg">
        <h3>Plot 1: Australia Fire Map</h3>
+      </a>
        <p> Plot 1 is all about Australia Fire Map</p>
      </div>
 
      <div class="box">
+      <a href="#Rainfall">
       <img src="./img/rainfall.jpg">
        <h3>Plot 2: Historical Rainfall</h3>
+      </a>
        <p> Plot 2 is all about Australia Historical Rainfall</p>
      </div>
 
      <div class="box">
+      <a href="#Temp">
       <img src="./img/temp.jpg">
       <h3>Plot 3: Historical Temperature</h3>
+      </a>
       <p> Plot 3 is all about Australia Historical Temperature</p>
     </div>
 
      </div>
    </section> 
+
+   <section id="newsletter">
+    <a name="Map"></a>
+    <div class="container">
+      <h1> Australia Fire Map</h1>
+      <a href="#top">
+      Back
+    </a>
+    </div>
+  </section>
    
    <div id="vis"></div>
      <script>
@@ -129,6 +142,27 @@
                            // Embed the visualization in the container with id `vis`
                            vegaEmbed('#vis', vlSpec);
     </script>
+
+    <section id="newsletter">
+      <a name="Rainfall"></a>
+      <div class="container">
+        <h1> Historical Rainfall </h1>
+        <a href="#top">
+          Back
+        </a>
+      </div>
+    </section>
+
+    <section id="newsletter">
+      <a name="Temp"></a>
+      <div class="container">
+        <h1> Historical Temperature </h1>
+        <a href="#top">
+          Back
+        </a>
+      </div>
+    </section>
+
     </section>
 
    <footer>
