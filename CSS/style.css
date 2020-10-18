@@ -87,7 +87,7 @@ header a:hover{
 /*Showcase*/
 #showcase{
     min-height: 400px;
-    background:url('../img/Sky.PNG') no-repeat 0 -1100px;
+    background:url('../img/Sky.png') no-repeat 0 -1100px;
     text-align: center;
     color: #ffffff;
 }
