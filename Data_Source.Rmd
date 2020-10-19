@@ -58,7 +58,7 @@ library(dplyr)
 # Rainfall data in year 2019
 rainfall_tidy <- rainfall %>% 
   select(-station_code, -period, -station_name)%>%
-  filter(year >= 2019 & year < 2020) %>% 
+  #filter(year >= 2019 & year < 2020) %>% 
   na.omit()
 
 rainfall_tidy$date <- as.Date(with(rainfall_tidy, paste(year, month, day,sep="-")), "%Y-%m-%d") 
