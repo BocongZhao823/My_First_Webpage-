@@ -41,6 +41,9 @@ tuesdata <- tidytuesdayR::tt_load(2020, week = 2)
 rainfall <- tuesdata$rainfall
 temperature <- tuesdata$temperature
 AusNew <- tuesdata$MODIS_C6_Australia_and_New_Zealand_7d
+write.csv(AusNew,"AusNew.csv")
+write.csv(rainfall,"rainfall.csv")
+write.csv(temperature,"temperature.csv")
 ```
 
 ## Briefly view the data
@@ -89,4 +92,5 @@ temp_tidy %>%
   group_by(city_name) %>% 
   count()
 ```
+
 
