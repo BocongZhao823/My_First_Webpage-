@@ -14,6 +14,12 @@
   "data": {
     "url": "https://raw.githubusercontent.com/BocongZhao823/My_First_Webpage-/main/data/AusNew.csv"
   },
+
+ "transform": [
+   {"calculate": "datum.track*datum.scan",
+   "as":"real_size"}
+ ],
+
   "encoding": {
   "longitude": {"field": "longitude", "type": "quantitative"},
   "latitude": {"field": "latitude", "type": "quantitative"}
@@ -25,12 +31,12 @@
   "tooltip": {"content": "data"}
   },
   "encoding": {
-  "size": {"field": "scan",
+  "size": {"field": "real_size",
   "type": "quantitative",
   "scale": {
   "domain": [0, 10]
   }},
-  "color": {"field": "track",
+  "color": {"field": "confidence",
   "type": "quantitative",
   "scale":{
   "scheme":"reds"

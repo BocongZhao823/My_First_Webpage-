@@ -1,0 +1,54 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+    "width": 500,
+    "height": 400,
+    "title": "Fire",
+    "data": {
+      "url": "https://raw.githubusercontent.com/BocongZhao823/My_First_Webpage-/main/data/AusNew.csv"
+    },
+    "transform": [
+      {"filter":"datum.brightness>0"},
+      {"filter":"datum.frp <4000 & datum.frp>0"},
+      {"calculate": "datum.track*datum.scan",
+      "as":"real_size"}
+    ],
+    "mark": "circle",
+    "encoding": {
+      "x": {
+        "field": "brightness",
+        "type": "quantitative",
+        "title": "brightness",
+        "scale":{"domain":[300,520]}
+        
+        },
+   
+     "y": {
+        "field": "frp",
+        "type": "quantitative",
+        "scale":{"domain":[0,4000]}
+        },
+   
+     "color": {
+        "field": "daynight",
+        "type": "nominal"
+        },
+        "opacity":{
+          "value":0.6
+          },
+   
+     "size": {
+       "field": "real_size",
+       "type": "quantitative",
+       "scale":{
+         "type": "threshold",
+         "domain":[2, 4,6,8],
+         "range":[10, 50,100,150,250]
+       },
+       "legend":{"format":".1s"}
+        },
+   
+      "tooltip":[
+        {"field":""}
+      ]
+    }
+   }
