@@ -1,7 +1,38 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "width": 300, "height": 200,
+  "width": 500, "height": 200,
   "data": {"url": "https://raw.githubusercontent.com/BocongZhao823/My_First_Webpage-/main/data/rainfall_tidy.csv"},
+
+  "selection": {
+    "city_selector": {
+      "type": "single",
+      "fields": ["city_name"],
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          "Adelaide",
+          "Brisbane",
+          "Canberra",
+          "Melbourne",
+          "Perth",
+          "Sydney"
+        ],
+        "labels": [
+          "Show All",
+          "Adelaide",
+          "Brisbane",
+          "Canberra",
+          "Melbourne",
+          "Perth",
+          "Sydney"
+        ],
+        "name": "City Selection:"
+      }
+    }
+  },
+  "transform": [{"filter": {"selection": "city_selector"}}],
+
   "mark": "area",
   "encoding": {
     "x": {
@@ -13,7 +44,17 @@
     },
     "color": {
       "field": "city_name",
-      "scale": {"scheme": "category20b"}
+     "type": "nominal",
+      "scale": {
+        "domain": [
+          "Adelaide",
+          "Brisbane",
+          "Canberra",
+          "Melbourne",
+          "Perth",
+          "Sydney"
+        ]
+      }
     }
   }
 }
