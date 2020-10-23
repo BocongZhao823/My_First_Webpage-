@@ -41,7 +41,7 @@
      <div class="container">
        <h1>Australia Fires & Historical Rainfall, Temperature</h1>
        <p> Here I need to do some research & put some articles with reference/link</p>
-       </div>>
+       </div>
    </section>
 
    <section id="newsletter">
@@ -91,57 +91,64 @@
     </div>
   </section>
    
+  <section>
    <div id="vis"></div>
      <script>
     // Assign the specification to a local variable vlSpec.
-     var vlSpec = {
-       "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-       "width": 800,
-       "height": 600,
-       "title": "Australia Fire",
-       "layer": [
-         { "data": {
-           "url": "https://raw.githubusercontent.com/BocongZhao823/My_First_Webpage-/main/data/Ausmap.geo.json",
-           "format": {"type": "topojson", "feature": "custom"}
-           },
-         "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"}
-         },
-         {
-           "data": {
-             "url": "https://raw.githubusercontent.com/BocongZhao823/My_First_Webpage-/main/data/AusNew.csv"
-             },
-             "encoding": {
-               "longitude": {"field": "longitude", "type": "quantitative"},
-               "latitude": {"field": "latitude", "type": "quantitative"}
-               },
-               "layer": [
-                 {
-                   "mark": {
-                     "type": "circle",
-                     "tooltip": {"content": "data"}
-                     },
-                     "encoding": {
-                       "size": {"field": "scan",
-                       "type": "quantitative",
-                       "scale": {
-                         "domain": [0, 10]
-                         }},
-                         "color": {"field": "track",
-                         "type": "quantitative",
-                         "scale":{
-                           "scheme":"reds"
-                           }
-                           }
-                           }
-                           }
-                           ]
-                           }
-                           ],
-                           "config": {"projection": {"type": "orthographic", "rotate": [-140, 30, 0]}}
-                           }
+     var vlSpec ={
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "width": 800,
+  "height": 600,
+  "title": "Australia Fire",
+  "layer": [
+  { "data": {
+    "url": "https://raw.githubusercontent.com/BocongZhao823/My_First_Webpage-/main/data/Ausmap.geo.json",
+    "format": {"type": "topojson", "feature": "custom"}
+  },
+  "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"}
+  },
+  {
+  "data": {
+    "url": "https://raw.githubusercontent.com/BocongZhao823/My_First_Webpage-/main/data/AusNew.csv"
+  },
+
+ "transform": [
+   {"calculate": "datum.track*datum.scan",
+   "as":"real_size"}
+ ],
+
+  "encoding": {
+  "longitude": {"field": "longitude", "type": "quantitative"},
+  "latitude": {"field": "latitude", "type": "quantitative"}
+  },
+  "layer": [
+  {
+  "mark": {
+  "type": "circle",
+  "tooltip": {"content": "data"}
+  },
+  "encoding": {
+  "size": {"field": "real_size",
+  "type": "quantitative",
+  "scale": {
+  "domain": [0, 10]
+  }},
+  "color": {"field": "confidence",
+  "type": "quantitative",
+  "scale":{
+  "scheme":"reds"
+  }
+  }
+  }
+  }
+  ]
+  }
+  ],
+   "config": {"projection": {"type": "orthographic", "rotate": [-140, 30, 0]}}}
                            // Embed the visualization in the container with id `vis`
                            vegaEmbed('#vis', vlSpec);
     </script>
+    </section>
 
     <section id="newsletter">
       <a name="Rainfall"></a>
@@ -151,6 +158,74 @@
           Back
         </a>
       </div>
+    </section>
+
+    <section>
+      <div id="vis1"></div>
+      <script>
+     // Assign the specification to a local variable vlSpec.
+      var vlSpec = {
+   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+   "width": 800,
+   "height": 200,
+   "description": "Stock prices of 5 Tech Companies over Time.",
+   "data": {
+     "url": "https://raw.githubusercontent.com/BocongZhao823/My_First_Webpage-/main/data/rainfall_tidy.csv"
+   },
+   "selection": {
+     "city_selector": {
+       "type": "single",
+       "fields": ["city_name"],
+       "bind": {
+         "input": "select",
+         "options": [
+           null,
+           "Adelaide",
+           "Brisbane",
+           "Canberra",
+           "Melbourne",
+           "Perth",
+           "Sydney"
+         ],
+         "labels": [
+           "Show All",
+           "Adelaide",
+           "Brisbane",
+           "Canberra",
+           "Melbourne",
+           "Perth",
+           "Sydney"
+         ],
+         "name": "City Selection:"
+       }
+     }
+   },
+   "transform": [{"filter": {"selection": "city_selector"}}],
+   "mark": {"type": "line", "point": {"filled": false, "fill": "white"}},
+   "encoding": {
+     "x": {"timeUnit": "year", "field": "date"},
+     "y": {"aggregate": "mean", "field": "rainfall", "type": "quantitative"},
+     "color": {
+       "field": "city_name",
+       "type": "nominal",
+       "scale": {
+         "domain": [
+           "Adelaide",
+           "Brisbane",
+           "Canberra",
+           "Melbourne",
+           "Perth",
+           "Sydney"
+         ]
+       }
+     }
+   }
+ };
+ 
+ // Embed the visualization in the container with id `vis`
+ vegaEmbed('#vis1', vlSpec);    
+   
+</script>
     </section>
 
     <section id="newsletter">
