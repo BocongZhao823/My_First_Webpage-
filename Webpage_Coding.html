@@ -403,7 +403,7 @@
     "mark": {"type": "line", "point": {"filled": false, "fill": "white"}},
     "encoding": {
       "x": {"timeUnit": "year", "field": "date"},
-      "y": {"aggregate": "max", "field": "temperature", "type": "quantitative"},
+      "y": {"aggregate": "min", "field": "temperature", "type": "quantitative"},
       "color": {
         "field": "city_name",
        "type": "nominal",
@@ -426,9 +426,77 @@
       </script>
     </section>
 
-
     <section>
       <div id="vis5"></div>
+      <script>
+         var vlSpec = 
+         {
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "width": 800,
+  "height": 200,
+  "data": {
+    "url": "https://raw.githubusercontent.com/BocongZhao823/My_First_Webpage-/main/data/temperature.csv"
+  },
+  "selection": {
+    "city_selector": {
+      "type": "single",
+      "fields": ["city_name"],
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          "PORT",
+          "KENT",
+          "BRISBANE",
+          "CANBERRA",
+          "MELBOURNE",
+          "PERTH",
+          "SYDNEY"
+        ],
+        "labels": [
+          "Show All",
+          "PORT",
+          "KENT",
+          "BRISBANE",
+          "CANBERRA",
+          "MELBOURNE",
+          "PERTH",
+          "SYDNEY"
+        ],
+        "name": "City Selection:"
+      }
+    }
+  },
+  "transform": [{"filter": {"selection": "city_selector"}}],
+  "mark": "area",
+  "encoding": {
+    "x": {"timeUnit": "year", "field": "date", "axis": {"format": "%Y"}},
+    "y": {"aggregate": "max", "field": "temperature"},
+    "color": {
+      "field": "city_name",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+         "PORT",
+          "KENT",
+          "BRISBANE",
+          "CANBERRA",
+          "MELBOURNE",
+          "PERTH",
+          "SYDNEY"
+        ]
+      }
+    }
+  }
+} ;
+ // Embed the visualization in the container with id `vis`
+ vegaEmbed('#vis5', vlSpec);    
+      </script>
+    </section>
+
+
+    <section>
+      <div id="vis6"></div>
       <script>
          var vlSpec = {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
@@ -462,7 +530,7 @@
   }
 };
  // Embed the visualization in the container with id `vis`
- vegaEmbed('#vis5', vlSpec);    
+ vegaEmbed('#vis6', vlSpec);    
       </script>
     </section>
 

@@ -1,0 +1,58 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+    "width": 500, "height": 200,
+    "data": {"url": "https://raw.githubusercontent.com/BocongZhao823/My_First_Webpage-/main/data/temperature.csv"},
+  
+    "selection": {
+      "city_selector": {
+        "type": "single",
+        "fields": ["city_name"],
+        "bind": {
+          "input": "select",
+          "options": [
+            null,
+            "PORT",
+            "KENT",
+            "BRISBANE",
+            "CANBERRA",
+            "MELBOURNE",
+            "PERTH",
+            "SYDNEY"
+          ],
+          "labels": [
+            "Show All",
+            "PORT",
+            "KENT",
+            "BRISBANE",
+            "CANBERRA",
+            "MELBOURNE",
+            "PERTH",
+            "SYDNEY"
+          ],
+          "name": "City Selection:"
+        }
+      }
+    },
+    "transform": [{"filter": {"selection": "city_selector"}}],
+    "mark": {"type": "line", "point": {"filled": false, "fill": "white"}},
+    "encoding": {
+      "x": {"timeUnit": "year", "field": "date"},
+      "y": {"aggregate": "min", "field": "temperature", "type": "quantitative"},
+      "color": {
+        "field": "city_name",
+       "type": "nominal",
+        "scale": {
+          "domain": [
+            "PORT",
+            "KENT",
+            "BRISBANE",
+            "CANBERRA",
+            "MELBOURNE",
+            "PERTH",
+            "SYDNEY"
+          ]
+        }
+      }
+    }
+  }
+  
