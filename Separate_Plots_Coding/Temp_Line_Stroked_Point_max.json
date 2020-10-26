@@ -37,7 +37,7 @@
     "mark": {"type": "line", "point": {"filled": false, "fill": "white"}},
     "encoding": {
       "x": {"timeUnit": "year", "field": "date"},
-      "y": {"aggregate": "mean", "field": "temperature", "type": "quantitative"},
+      "y": {"aggregate": "max", "field": "temperature", "type": "quantitative"},
       "color": {
         "field": "city_name",
        "type": "nominal",
