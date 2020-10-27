@@ -25,13 +25,13 @@
    <header>
      <div class="container">
        <div id="branding">
-         <h1> <span class="highlight">Bocong</span> Web Design </h1>
+         <h1> <span class="highlight">Bocong</span> Visualization </h1>
        </div>
        <nav>
          <ul>
          <li class="current"><a href="Webpage_Coding.html">Home</a></li>
          <li><a href="about.html">About</a></li>
-         <li><a href="services.html">Services</a></li>
+         <li><a href="services.html">Reference</a></li>
          </ul>
        </nav>
      </div>
@@ -99,7 +99,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "width": 800,
   "height": 600,
-  "title": "Australia Fire",
+  "title": "Australia Fire Map",
   "layer": [
   { "data": {
     "url": "https://raw.githubusercontent.com/BocongZhao823/My_First_Webpage-/main/data/Ausmap.geo.json",
@@ -172,6 +172,7 @@
    "data": {
      "url": "https://raw.githubusercontent.com/BocongZhao823/My_First_Webpage-/main/data/rainfall_tidy.csv"
    },
+   "title": "Australia Rainfall Line Chart (Mean)",
    "selection": {
      "city_selector": {
        "type": "single",
@@ -235,7 +236,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "width": 800, "height": 200,
   "data": {"url": "https://raw.githubusercontent.com/BocongZhao823/My_First_Webpage-/main/data/rainfall_tidy.csv"},
-
+  "title": "Australia Rainfall Stacked Area Chart (Sum)",
   "selection": {
     "city_selector": {
       "type": "single",
@@ -308,7 +309,7 @@
     "data": {
         "url": "https://raw.githubusercontent.com/BocongZhao823/My_First_Webpage-/main/data/rainfall_tidy.csv"
     },
-    "title": "Monthly Mean Rainfall in Australia",
+    "title": "Daily Rainfall Heatmap (Mean)",
     "config": {
         "view": {
             "strokeWidth": 0,
@@ -368,7 +369,7 @@
           "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
     "width": 800, "height": 200,
     "data": {"url": "https://raw.githubusercontent.com/BocongZhao823/My_First_Webpage-/main/data/temperature.csv"},
-  
+    "title": "Australia Temperature Line Chart (Min)",
     "selection": {
       "city_selector": {
         "type": "single",
@@ -437,6 +438,7 @@
   "data": {
     "url": "https://raw.githubusercontent.com/BocongZhao823/My_First_Webpage-/main/data/temperature.csv"
   },
+  "title": "Australia Temperature Stacked Area Chart (Max)",
   "selection": {
     "city_selector": {
       "type": "single",
@@ -505,7 +507,7 @@
   "data": {
     "url": "https://raw.githubusercontent.com/BocongZhao823/My_First_Webpage-/main/data/temp_tidy.csv"
   },
-  "title": "Monthly Temp in Australia",
+  "title": "Daily Temperature Heatmap",
   "config": {"view": {"strokeWidth": 0, "step": 13}, "axis": {"domain": false}},
   "mark": "rect",
   "encoding": {
@@ -531,6 +533,30 @@
 };
  // Embed the visualization in the container with id `vis`
  vegaEmbed('#vis6', vlSpec);    
+      </script>
+    </section>
+
+    <section>
+      <div id="vis7"></div>
+      <script>
+         var vlSpec = {
+          "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+    "description": "A vertical box plot showing median and lower and upper quartiles of the distribution.",
+    "data": {"url": "https://raw.githubusercontent.com/BocongZhao823/My_First_Webpage-/main/data/temperature.csv"},
+     "title": "Temperature Boxplot",
+    "mark": "boxplot",
+    "encoding": {
+      "x": {"field": "city_name", "type": "nominal"},
+      "color": {"field": "city_name", "type": "nominal", "legend": null},
+      "y": {
+        "field": "temperature",
+        "type": "quantitative",
+        "scale": {"zero": false}
+      }
+    }
+        };
+ // Embed the visualization in the container with id `vis`
+ vegaEmbed('#vis7', vlSpec);    
       </script>
     </section>
 

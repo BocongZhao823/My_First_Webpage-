@@ -1,0 +1,16 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+    "description": "A vertical box plot showing median and lower and upper quartiles of the distribution.",
+    "data": {"url": "https://raw.githubusercontent.com/BocongZhao823/My_First_Webpage-/main/data/temperature.csv"},
+     "title": "temperature Boxplot",
+    "mark": "boxplot",
+    "encoding": {
+      "x": {"field": "city_name", "type": "nominal"},
+      "color": {"field": "city_name", "type": "nominal", "legend": null},
+      "y": {
+        "field": "temperature",
+        "type": "quantitative",
+        "scale": {"zero": false}
+      }
+    }
+  }
