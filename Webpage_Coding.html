@@ -360,6 +360,88 @@
 </script>
     </section>
 
+    <section>
+      <div id="vis40"></div>
+      <script>
+     // Assign the specification to a local variable vlSpec.
+      var vlSpec = {
+    "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+    "data": {"url": "https://raw.githubusercontent.com/BocongZhao823/My_First_Webpage-/main/data/rainfall_tidy.csv"},
+    "title": " Rainfall patterns in different months in the city",
+    "selection": {
+      "city_selector": {
+        "type": "single",
+        "fields": ["city_name"],
+        "bind": {
+          "input": "select",
+          "options": [
+            null,
+            "Adelaide",
+            "Brisbane",
+            "Canberra",
+            "Melbourne",
+            "Perth",
+            "Sydney"
+          ],
+          "labels": [
+            "Show All",
+            "Adelaide",
+            "Brisbane",
+            "Canberra",
+            "Melbourne",
+            "Perth",
+            "Sydney"
+          ],
+          "name": "City Selection:"
+        }
+      }
+    },
+    "transform": [{"filter": {"selection": "city_selector"}}],
+    "mark": "bar",
+    "encoding": {
+      "x": {
+        "timeUnit": "month",
+        "field": "date",
+        "type": "ordinal",
+        "title": "Month of the year"
+      },
+      "y": {
+        "aggregate": "mean",
+        "field": "rainfall",
+        "type": "quantitative"
+      },
+      "color": {
+        "field": "city_name",
+        "type": "nominal",
+        "scale": {
+          "range": ["#e7ba52", "#c7c7c7", "#1f77b4", "#a6cee3","#9467bd","#aec7e8"],
+          "domain": [
+            "Adelaide",
+            "Brisbane",
+            "Canberra",
+            "Melbourne",
+            "Perth",
+            "Sydney"
+          ]
+        },
+        "title": "City Name"
+      },
+      "tooltip": [
+        {"field": "city_name", "type": "nominal"},
+        {
+          "aggregate": "mean",
+          "field": "rainfall",
+          "type": "quantitative",
+          "format": ","
+        }
+      ]
+    }
+      };
+ // Embed the visualization in the container with id `vis`
+ vegaEmbed('#vis40', vlSpec);    
+</script>
+    </section>
+
     <section id="newsletter">
       <a name="Temp"></a>
       <div class="container">
