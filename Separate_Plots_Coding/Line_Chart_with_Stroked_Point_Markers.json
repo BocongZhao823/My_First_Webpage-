@@ -52,6 +52,10 @@
           "Sydney"
         ]
       }
-    }
+    },
+    "tooltip":[
+      {"field":"city_name","type": "nominal"},
+      {"aggregate": "mean","field":"rainfall","type": "quantitative","format":","}
+    ]
   }
 }

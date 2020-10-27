@@ -219,7 +219,11 @@
            "Sydney"
          ]
        }
-     }
+     },
+    "tooltip":[
+      {"field":"city_name","type": "nominal"},
+      {"aggregate": "mean","field":"rainfall","type": "quantitative","format":","}
+    ]
    }
  };
  
@@ -289,7 +293,11 @@
           "Sydney"
         ]
       }
-    }
+    },
+    "tooltip":[
+      {"field":"city_name","type": "nominal"},
+      {"aggregate": "sum","field":"rainfall","type": "quantitative","format":","}
+    ]
   }
 };
 
@@ -419,7 +427,11 @@
             "SYDNEY"
           ]
         }
-      }
+      },
+    "tooltip":[
+      {"field":"city_name","type": "nominal"},
+      {"aggregate": "min","field":"temperature","type": "quantitative","format":","}
+    ]
     }
          };
          // Embed the visualization in the container with id `vis`
@@ -488,7 +500,11 @@
           "SYDNEY"
         ]
       }
-    }
+    },
+    "tooltip":[
+      {"field":"city_name","type": "nominal"},
+      {"aggregate": "max","field":"temperature","type": "quantitative","format":","}
+    ]
   }
 } ;
  // Embed the visualization in the container with id `vis`
