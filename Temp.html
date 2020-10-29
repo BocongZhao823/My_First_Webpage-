@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Bocong's Web Design | Temperature</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Data Visualization Using Vega-Lite">
+    <meta name="author" content="Bocong Zhao">
+    <meta name="keywords" content="Australia Fires & Historical Rainfall, Temperature">
+    <link rel="stylesheet" media="all" href="css/main.css" />
+    <script src="js/modernizr.custom.37797.js"></script> 
+
+  <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
+  <!-- Import vega-embed -->
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+  <!-- Import pure.css -->
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700;900&display=swap" rel="stylesheet">
+
+  <!-- custom style -->
+  <style>
+    *{
+      font-family: 'Source Sans Pro', sans-serif;
+    }
+    h1{
+      font-weight: 900;
+    }
+
+    h2{
+      font-weight: 600;
+    }
+
+     body{
+      background: #e3e5e5;
+      overflow-x: hidden;
+      height: 2000px;
+      line-height: 1.5;
+      color: #000;
+      font-size: 14px;
+      font-family: Arial,sans-serif;
+     }
+     .page{
+       width: 1100px;    
+       background-color: white;   
+       margin: auto;
+       padding: 50px;
+       padding-top: 35px;
+    }
+    .vis-container{
+      width: 100%;
+    }
+    .description h2, h1{
+      margin-top:0px;
+      color: #e8491d
+    }
+    .description-right {
+      padding-left: 20px;
+    }
+    .description-left{
+      padding-right: 20px;
+    }
+    .pure-g{
+      margin-bottom: 25px;
+    }
+    .small-font{
+        font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  
+  <div id="wrapper">
+      
+    <header id="branding">
+      <nav>
+        <ul>
+        <li><a href="Webpage_Coding.html">Home</a></li>
+        <li><a href="Fires.html">Fires</a></li>
+        <li><a href="Rainfall.html">Rainfall</a></li>
+        <li class="current"><a href="Temp.html">Temperature</a></li>
+        <li><a href="services.html">About</a></li>
+        </ul>
+      </nav>
+    </header>
+
+ <div class="page">
+
+   <!-- pure grid group -->
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <h1>Multiple Visualisations</h1>
+        <p>This page demonstrates how you can use pure.css grid for your layout.</p>
+      </div>
+    </div>
+  <!-- end pure grid group -->
+
+    <!-- pure grid group -->
+    <div class="pure-g">
+        <div class="pure-u-1-3">
+          <div class="description description-left">
+            <h2>This is the first section</h2>
+            <p>The first column is used for description while the next two columns are merged and used for visualisation. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. </p>
+          </div>
+        </div>
+        <div class="pure-u-2-3">
+          <div id="vis1" class="vis-container"></div>
+        </div>
+    </div>
+    <!-- end pure grid group -->
+
+    <!-- pure grid group -->
+    <div class="pure-g">
+        <div class="pure-u-2-3">
+          <div id="vis2"  class="vis-container"></div>
+        </div>
+        <div class="pure-u-1-3">
+          <div class="description description-right">
+            <h2>This is the second section</h2>
+            <p>Similar to the previous section, but the colum partition is swapped. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. Egestas purus viverra accumsan in nisl.</p>
+          </div>
+        </div>
+      
+    </div>
+    <!-- end pure grid group -->
+
+    <!-- pure grid group -->
+    <div class="pure-g">
+      <div class="pure-u-1-3">
+        <div class="description description-left">
+          <h2>This is the third section</h2>
+          <p>The third column is used for description while the next two columns are merged and used for visualisation. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. </p>
+        </div>
+      </div>
+      <div class="pure-u-2-3">
+        <div id="vis3" class="vis-container"></div>
+      </div>
+  </div>
+  <!-- end pure grid group -->
+
+    <!-- pure grid group -->
+    <div class="pure-g">
+      <div class="pure-u-2-3">
+        <div id="vis4"  class="vis-container"></div>
+      </div>
+      <div class="pure-u-1-3">
+        <div class="description description-right">
+          <h2>This is the fourth section</h2>
+          <p>Similar to the previous section, but the colum partition is swapped. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. Egestas purus viverra accumsan in nisl.</p>
+        </div>
+      </div>
+    
+  </div>
+  <!-- end pure grid group -->
+  
+    <div class="pure-g">
+      <div class="pure-u-1-1 small-font">
+        <p>This visualisation is created by <a href="https://github.com/BocongZhao823" target="_blank">Bocong Zhao</a>. The datasource is <a href="https://github.com/rfordatascience/tidytuesday/tree/master/data/2020/2020-01-07" target="_blank">Tidytuesday</href>.</p>
+      </div>
+    </div>
+  
+
+  </div> <!-- end page -->
+   
+  <div id="vis1">
+    <script>
+   // Assign the specification to a local variable vlSpec.
+    var vlSpec ={
+      "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "width": 600,
+  "height": 200,
+  "data": {
+    "url": "https://raw.githubusercontent.com/BocongZhao823/My_First_Webpage-/main/data/temperature.csv"
+  },
+  "title": "Australia Temperature Stacked Area Chart (Max)",
+  "selection": {
+    "city_selector": {
+      "type": "single",
+      "fields": ["city_name"],
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          "PORT",
+          "KENT",
+          "BRISBANE",
+          "CANBERRA",
+          "MELBOURNE",
+          "PERTH",
+          "SYDNEY"
+        ],
+        "labels": [
+          "Show All",
+          "PORT",
+          "KENT",
+          "BRISBANE",
+          "CANBERRA",
+          "MELBOURNE",
+          "PERTH",
+          "SYDNEY"
+        ],
+        "name": "City Selection:"
+      }
+    }
+  },
+  "transform": [{"filter": {"selection": "city_selector"}}],
+  "mark": "area",
+  "encoding": {
+    "x": {"timeUnit": "year", "field": "date", "axis": {"format": "%Y"}},
+    "y": {"aggregate": "max", "field": "temperature"},
+    "color": {
+      "field": "city_name",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+         "PORT",
+          "KENT",
+          "BRISBANE",
+          "CANBERRA",
+          "MELBOURNE",
+          "PERTH",
+          "SYDNEY"
+        ]
+      }
+    },
+    "tooltip":[
+      {"field":"city_name","type": "nominal"},
+      {"aggregate": "max","field":"temperature","type": "quantitative","format":","}
+    ]
+  }
+} ;
+
+ // Embed the visualization in the container with id `vis`
+ vegaEmbed('#vis1', vlSpec);    
+</script>
+</div>
+
+<div id="vis2">
+  <script>
+ // Assign the specification to a local variable vlSpec.
+  var vlSpec ={
+    "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "width": 500,
+  "height": 300,
+  "data": {
+    "url": "https://raw.githubusercontent.com/BocongZhao823/My_First_Webpage-/main/data/temp_tidy.csv"
+  },
+  "title": "Daily Temperature Heatmap",
+  "config": {"view": {"strokeWidth": 0, "step": 13}, "axis": {"domain": false}},
+  "mark": "rect",
+  "encoding": {
+    "x": {
+      "field": "date",
+      "timeUnit": "date",
+      "type": "ordinal",
+      "title": "Day",
+      "axis": {"labelAngle": 0, "format": "%e"}
+    },
+    "y": {
+      "field": "date",
+      "timeUnit": "month",
+      "type": "ordinal",
+      "title": "Month"
+    },
+    "color": {
+      "field": "temperature",
+      "type": "quantitative",
+      "legend": {"title": null}
+    }
+  }
+};
+    // Embed the visualization in the container with id `vis`
+ vegaEmbed('#vis2', vlSpec);    
+</script>
+</div>
+
+
+<div id="vis3">
+  <script>
+ // Assign the specification to a local variable vlSpec.
+  var vlSpec ={
+    "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+    "width": 600, "height": 200,
+    "data": {"url": "https://raw.githubusercontent.com/BocongZhao823/My_First_Webpage-/main/data/temperature.csv"},
+    "title": "Australia Temperature Line Chart (Min)",
+    "selection": {
+      "city_selector": {
+        "type": "single",
+        "fields": ["city_name"],
+        "bind": {
+          "input": "select",
+          "options": [
+            null,
+            "PORT",
+            "KENT",
+            "BRISBANE",
+            "CANBERRA",
+            "MELBOURNE",
+            "PERTH",
+            "SYDNEY"
+          ],
+          "labels": [
+            "Show All",
+            "PORT",
+            "KENT",
+            "BRISBANE",
+            "CANBERRA",
+            "MELBOURNE",
+            "PERTH",
+            "SYDNEY"
+          ],
+          "name": "City Selection:"
+        }
+      }
+    },
+    "transform": [{"filter": {"selection": "city_selector"}}],
+    "mark": {"type": "line", "point": {"filled": false, "fill": "white"}},
+    "encoding": {
+      "x": {"timeUnit": "year", "field": "date"},
+      "y": {"aggregate": "min", "field": "temperature", "type": "quantitative"},
+      "color": {
+        "field": "city_name",
+       "type": "nominal",
+        "scale": {
+          "domain": [
+            "PORT",
+            "KENT",
+            "BRISBANE",
+            "CANBERRA",
+            "MELBOURNE",
+            "PERTH",
+            "SYDNEY"
+          ]
+        }
+      },
+    "tooltip":[
+      {"field":"city_name","type": "nominal"},
+      {"aggregate": "min","field":"temperature","type": "quantitative","format":","}
+    ]
+    }
+         };
+    // Embed the visualization in the container with id `vis`
+    vegaEmbed('#vis3', vlSpec);    
+</script>
+</div>
+
+<div id="vis4">
+  <script>
+ // Assign the specification to a local variable vlSpec.
+  var vlSpec ={
+    "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+    "description": "A vertical box plot showing median and lower and upper quartiles of the distribution.",
+    "data": {"url": "https://raw.githubusercontent.com/BocongZhao823/My_First_Webpage-/main/data/temperature.csv"},
+    "width": 500, "height": 200,
+     "title": "Temperature Boxplot",
+    "mark": "boxplot",
+    "encoding": {
+      "y": {"field": "city_name", "type": "nominal"},
+      "color": {"field": "city_name", "type": "nominal", "legend": null},
+      "x": {
+        "field": "temperature",
+        "type": "quantitative",
+        "scale": {"zero": false}
+      }
+    }
+        };
+    // Embed the visualization in the container with id `vis`
+    vegaEmbed('#vis4', vlSpec);    
+</script>
+</div>
+
+</body>
+</html>
