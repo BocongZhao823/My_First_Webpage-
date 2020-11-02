@@ -155,8 +155,7 @@
  "layer": [
  {
  "mark": {
- "type": "circle",
- "tooltip": {"content": "data"}
+ "type": "circle"
  },
  "encoding": {
  "size": {"field": "real_size",
@@ -169,7 +168,14 @@
  "scale":{
  "scheme":"reds"
  }
- }
+ },
+ "tooltip":[
+      {"field":"latitude","type": "nominal"},
+      {"field":"longitude","type": "nominal"},
+      {"field":"brightness","type": "quantiative"},
+      {"field":"scan","type": "quantiative"},
+      {"field":"track","type": "quantiative"},
+    ]
  }
  }
  ]
