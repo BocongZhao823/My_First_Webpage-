@@ -340,6 +340,14 @@
            "Perth",
            "Sydney"
          ],
+         "range":[
+        "#984ea3",
+          "#d55e00",
+          "#cc79a7",
+          "#0072b2",
+          "#f0e442",
+          "#009e73"
+        ],
          "name": "City Selection:"
        }
      }
@@ -360,22 +368,14 @@
            "Melbourne",
            "Perth",
            "Sydney"
-         ],
-         "range":[
-        "#984ea3",
-          "#d55e00",
-          "#cc79a7",
-          "#0072b2",
-          "#f0e442",
-          "#009e73"
-        ]
-         }
+         ]
        }
      },
     "tooltip":[
       {"field":"city_name","type": "nominal"},
       {"aggregate": "mean","field":"rainfall","type": "quantitative","format":","}
     ]
+   }
  };
     // Embed the visualization in the container with id `vis`
     vegaEmbed('#vis3', vlSpec);    
